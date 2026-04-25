@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+.env
+*.env
+credentials
+*.pem
+*.key
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+venv/
+.venv/

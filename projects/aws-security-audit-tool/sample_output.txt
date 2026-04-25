@@ -1,0 +1,71 @@
+============================================================
+  AWS SECURITY AUDIT REPORT
+  Generated: 2026-04-24 10:32:11 UTC
+  Region:    us-east-1
+  Profile:   default
+============================================================
+  [INFO] Authenticated as: arn:aws:iam::123456789012:user/demo-user
+  [INFO] Account ID:       123456789012
+
+────────────────────────────────────────────────────────────
+  Root Account Security
+────────────────────────────────────────────────────────────
+  [PASS] Root account MFA is enabled
+  [PASS] No active root account access keys
+
+────────────────────────────────────────────────────────────
+  IAM Password Policy
+────────────────────────────────────────────────────────────
+  [FAIL] IAM password policy is weak:
+      • minimum length is 8 (recommend >=14)
+      • symbols not required
+      • no password expiry set
+
+────────────────────────────────────────────────────────────
+  IAM User MFA
+────────────────────────────────────────────────────────────
+  [FAIL] 2 IAM user(s) have console access but NO MFA:
+      • john.doe
+      • jane.smith
+
+────────────────────────────────────────────────────────────
+  CloudTrail Logging
+────────────────────────────────────────────────────────────
+  [PASS] CloudTrail 'management-events-trail' is active and logging
+
+────────────────────────────────────────────────────────────
+  S3 Bucket Public Access
+────────────────────────────────────────────────────────────
+  [PASS] Account-level S3 Block Public Access is fully enabled
+  [FAIL] 1 bucket(s) have public access not fully blocked:
+      • my-old-website-bucket
+
+────────────────────────────────────────────────────────────
+  Security Group Exposure
+────────────────────────────────────────────────────────────
+  [FAIL] 1 security group rule(s) expose sensitive ports to the internet:
+      • sg-0abc1234def56789 (launch-wizard-1) — port 22 (SSH) open to 0.0.0.0/0
+
+────────────────────────────────────────────────────────────
+  GuardDuty Threat Detection
+────────────────────────────────────────────────────────────
+  [PASS] GuardDuty is enabled in us-east-1 (detector: abc123def456)
+
+────────────────────────────────────────────────────────────
+  AWS Config Recording
+────────────────────────────────────────────────────────────
+  [WARN] Could not check AWS Config: AccessDenied
+
+────────────────────────────────────────────────────────────
+  Default VPC
+────────────────────────────────────────────────────────────
+  [WARN] Default VPC exists in us-east-1 — consider deleting it to reduce attack surface if not in use
+
+============================================================
+  SUMMARY
+============================================================
+  [PASS] 5 check(s) passed
+  [FAIL] 4 check(s) failed  <- remediate these
+  [WARN] 2 warning(s)
+
+  Score: 5/9 checks passed

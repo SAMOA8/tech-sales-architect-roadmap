@@ -1,0 +1,34 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+*.egg-info/
+dist/
+build/
+
+# AWS credentials — NEVER commit these
+.env
+*.env
+credentials
+aws_credentials.txt
+*.pem
+*.key
+
+# Reports with potentially sensitive account info
+report_*.txt
+audit_output*.txt
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
